@@ -3,7 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>About</title>
+		{% if title %}
+		<title> Flask Blog - {{title}} </title>
+	{% else %}
+		<title>Flask Blog </title>
+	{% endif %}
 </head>
 <body>
 	<h1>About Page</h1>
