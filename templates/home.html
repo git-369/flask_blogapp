@@ -1,9 +1,26 @@
 {% extends "layout.html" %}
+{%block header%}
+<header class="py-5 bg-light border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">Welcome to YouBlog!</h1>
+                    <p class="lead mb-0">A Python Flask Postgresql based Blogging app for your next blog homepage</p>
+                </div>
+            </div>
+        </header>
+{%endblock header%}
 {% block content %}
-	<h1>Home Page</h1>
 	{% for post in posts %}
-		<h1>{{ post.title }} </h1>
-		<p> By {{post.author}} on {{post.date_posted }} </p>
-		<p>{{post.content}} </p>
+		<article class="media content-section">
+		  <div class="media-body">
+		    <div class="article-metadata">
+		      <a class="mr-2" href="#">{{ post.author }}</a>
+		      <small class="text-muted">{{ post.date_posted }}</small>
+		    </div>
+		    <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+		    <p class="article-content">{{ post.content }}</p>
+		  </div>
+		</article>
 	{% endfor %}
 {% endblock content %}
+
